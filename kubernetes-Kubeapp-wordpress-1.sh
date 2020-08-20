@@ -99,6 +99,10 @@ apiServer:
 controllerManager:
   extraArgs:
     cloud-provider: "aws"
+    iam:
+      withAddonPolicies:
+        externalDNS: true
+        albIngress: true
 EOF
 
 kubeadm init --config /etc/kubernetes/aws.yaml
